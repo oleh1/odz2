@@ -40,6 +40,11 @@ class StudentController extends StudentsDb
         return $this->edit4();
     }
 
+    public function delete()
+    {
+        $this->delete1();
+    }
+
     public function xxx()
     {
         return $this->requireToVar('View/xxxxx.php', ['xxxxx'=>$this->xxxx()]);

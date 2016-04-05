@@ -124,4 +124,14 @@ class StudentsDb
         return $this->search = mysqli_query($dd->getMysqli(), $se);
     }
 
+    public function delete1()
+    {
+        $dd = new baza();
+
+        $query_delete = "DELETE FROM $this->userstable WHERE name1='{$_GET['delete']}'";
+        mysqli_query($dd->getMysqli(), $query_delete);
+        header("Location: admin");
+        die;
+    }
+
 }

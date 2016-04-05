@@ -18,6 +18,7 @@ class router
         "/edit3" =>                 ['controller' => "Student", 'action' => 'edit3'],
         "/clear" =>                 ['controller' => "Student", 'action' => 'clear'],
         "/sessionexit" =>           ['controller' => "Student", 'action' => 'sessionexit'],
+        "/delete" =>                ['controller' => "Student", 'action' => 'delete'],
 
         ];
         
