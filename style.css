@@ -1,0 +1,29 @@
+h1 {
+    color: red;
+}
+
+hr {
+    border: none; /* Убираем границу */
+    background-color: red; /* Цвет линии */
+    color: red; /* Цвет линии для IE6-7 */
+    height: 2px; /* Толщина линии */
+}
+
+b { color: brown; }
+
+.home1 {
+    background-color: greenyellow;
+    border-radius: 50px;
+    height: 16%;
+}
+
+.home2 {
+    background-color: khaki;
+    border-radius: 30px;
+    height: 70%;
+    width: 90%;
+    padding: 2%;
+    margin-left: 3%;
+    margin-top: 1%;
+    overflow: auto;
+}
