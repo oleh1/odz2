@@ -75,11 +75,6 @@ class StudentController extends StudentsDb
         die;
     }
 
-/*    public function search()
-    {
-        return $this->requireToVar('View/search.php', ['search'=>$this->search1()]);
-    }*/
-
     private function requireToVar($file, $data = []){
         ob_start();
         extract($data);
