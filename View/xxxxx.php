@@ -14,7 +14,7 @@ while($a = $xxxxx->fetch_array()){
 <h1>Просмотр товара</h1>
     <a href="admin">Назад</a><br>
     <a href="edit1?edit=<?= $a2 ?>">Редактировать</a><br>
-    <a href="delete?delete=<?= $a2 ?>">Удалить</a><br>
+    <a href="delete?delete=<?= $a2 ?>&deleteimg=<?= $a5 ?>">Удалить</a><br>
 <?php endif ?>
     <a href="body">Назад</a><br>
 <b>Марка:</b> <?= $a1 ?><br>
