@@ -75,9 +75,7 @@ class StudentController extends StudentsDb
 
     public function sessionexit()
     {
-        unset($_SESSION['admin']);
-        header("Location: admin");
-        die;
+        return $this->sessionexit1();
     }
 
     private function requireToVar($file, $data = []){

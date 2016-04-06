@@ -81,8 +81,13 @@ class StudentsDb
     {
         $dd = new baza();
 
-        $mysql_query = "INSERT INTO $this->userstable VALUES(null, '{$_POST['mark']}', '{$_POST['name1']}', '{$_POST['price']}','{$_POST['description']}','{$_POST['quantity']}','{$_POST['img']}')";
+        $mysql_query = "INSERT INTO $this->userstable VALUES(null, '{$_POST['mark']}', '{$_POST['name1']}', '{$_POST['price']}','{$_POST['description']}','{$_POST['quantity']}','{$_FILES['myfile']['name']}')";
         mysqli_query($dd->getMysqli(), $mysql_query);
+
+        $uploaddir = "drawings/";
+        $dest = $uploaddir.$_FILES['myfile']['name'];
+        move_uploaded_file($_FILES['myfile']['tmp_name'],$dest);
+
         header("Location: admin");
         die;
     }
@@ -134,4 +139,10 @@ class StudentsDb
         die;
     }
 
+    public function sessionexit1()
+    {
+        unset($_SESSION['admin']);
+        header("Location: admin");
+        die;
+    }
 }

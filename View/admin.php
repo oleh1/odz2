@@ -19,7 +19,7 @@
     <a href="#" onclick="openbox('box1'); return false"><b>Форма добавления товара</b></a>
     <div id="box1" style="display: none;">
 
-        <form action="add_admin1" method="POST">
+        <form enctype="multipart/form-data" action="add_admin1" method="post">
             <strong>Введите марку</strong><br>
             <input type="text" name="mark" required><br>
             <strong>Введите название</strong><br>
@@ -30,8 +30,8 @@
             <textarea rows="9" cols="45" name="description"></textarea><br>
             <strong>Введите количество штук</strong><br>
             <input type="text" name="quantity" size="1" pattern="[0-9]+" required><br>
-            <strong>Введите название картинки</strong><br>
-            <input type="text" name="img" required><br>
+            <strong>Загрузить фотографию</strong><br>
+            <input type="file" name="myfile"><br/>
             <input type="submit" value="Добавить">
         </form>
 

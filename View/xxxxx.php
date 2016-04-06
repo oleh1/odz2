@@ -26,7 +26,11 @@ while($a = $xxxxx->fetch_array()){
     <b>Количество:</b> <?= $a6 ?> шт.<br>
 <?php endif ?>
 
+<?php if($a5 == null): ?>
+    <strong>Без фотографии</strong>
+    <?php else: ?>
 <b>Фотография</b><br><img src="drawings/<?= $a5 ?>">
+    <?php endif ?>
 
 <?php if(!isset($_SESSION['admin'])): ?>
 
