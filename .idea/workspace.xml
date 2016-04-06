@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="229a4b8d-dd59-4742-8124-10880a514623" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/body.php" afterPath="$PROJECT_DIR$/View/body.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -28,18 +26,7 @@
     <favorites_list name="web" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="body.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/View/body.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0849315" vertical-offset="0" max-vertical-offset="1098">
-              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
