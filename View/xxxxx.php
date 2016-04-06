@@ -12,11 +12,11 @@ while($a = $xxxxx->fetch_array()){
 
 <?php if(isset($_SESSION['admin'])): ?>
 <h1>Просмотр товара</h1>
-    <a href="admin">Назад</a><br>
+    <a href="admin">Назад в админку</a><br>
     <a href="edit1?edit=<?= $a2 ?>">Редактировать</a><br>
     <a href="delete?delete=<?= $a2 ?>&deleteimg=<?= $a5 ?>">Удалить</a><br>
 <?php endif ?>
-    <a href="body">Назад</a><br>
+    <a href="body">Назад на главную</a><br>
 <b>Марка:</b> <?= $a1 ?><br>
 <b>Название:</b> <?= $a2 ?><br>
 <b>Цена:</b> <?= $a3 ?> <b>грн.</b><br>

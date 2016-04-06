@@ -2,6 +2,7 @@
 <?php if(!isset($_SESSION['admin'])): ?>
 
 <h1>Авторизуйтесь</h1><br>
+    <a href="body">На главную</a><br>
 <form action="authorization1" method="POST">
     <b>Введите логин</b><br>
     <input type="text" name="login" required><br>
@@ -15,7 +16,7 @@
 <?php if(isset($_SESSION['admin'])): ?>
 
     <h1>Админ панель</h1>
-
+    <a href="body">На главную</a><br>
     <a href="#" onclick="openbox('box1'); return false"><b>Форма добавления товара</b></a>
     <div id="box1" style="display: none;">
 
