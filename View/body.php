@@ -1,3 +1,30 @@
+<?php if(!isset($_COOKIE['user'])): ?>
+<center><b>Просмотр каталога товаров доступно только для зарегистрированных пользователей</b></center>
+    <strong>Авторизуйтесь</strong><br>
+<?= $validation; ?>
+<form action="user_authorization1" method="POST">
+    <input type="text" name="login" placeholder="ВВедите логин" required><br>
+    <input type="password" name="password" placeholder="Введите пароль" required><br>
+    <input type="submit" value="ОК">
+</form>
+
+<a href="#" onclick="openbox('box5'); return false"><b>Регестрация</b></a>
+<div id="box5" style="display: none;">
+
+<form action="user_registration1" method="POST">
+    <input type="text" name="username" placeholder="Введите имя" required><br>
+    <input type="text" name="login" placeholder="ВВедите логин" required><br>
+    <input type="password" name="password" placeholder="Введите пароль" required><br>
+    <input type="submit" value="ОК">
+</form>
+
+    </div>
+
+    <?php endif ?>
+
+<?php if(isset($_COOKIE['user'])): ?>
+
+    <b><?= $validation; ?></b><br>
 <a href="expensive">Калькуляторы от 60 грн. и выше</a><br>
 <a href="average">Калькуляторы от 30 до 60 грн.</a><br>
 <a href="cheap">Калькуляторы до 30 грн.</a><br>
@@ -25,3 +52,5 @@
     </a>
 
 <?php endwhile ?>
+
+<?php endif ?>

@@ -10,7 +10,11 @@ class StudentController extends StudentsDb
 
     public function body()
     {
-        return $this->requireToVar('View/body.php', ['search'=>$this->search()]);
+        $data = [
+            'search'=>$this->search(),
+            'validation'=>$this->validation(),
+        ];
+        return $this->requireToVar('View/body.php', $data);
     }
 
     public function add_admin1()
@@ -22,8 +26,19 @@ class StudentController extends StudentsDb
         $data = [
             'adminall'=>$this->adminall,
             'purchases'=>$this->purchases,
+            'users'=>$this->users,
         ];
         return $this->requireToVar('View/admin.php', $data);
+    }
+
+    public function user_authorization1()
+    {
+        return $this->user_authorization2();
+    }
+
+    public function user_registration1()
+    {
+        return $this->user_registration2();
     }
 
     public function authorization1()
@@ -43,6 +58,11 @@ class StudentController extends StudentsDb
     public function delete()
     {
         $this->delete1();
+    }
+
+    public function delete_users()
+    {
+        $this->delete_users1();
     }
 
     public function xxx()

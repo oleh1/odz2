@@ -19,6 +19,9 @@ class router
         "/clear" =>                 ['controller' => "Student", 'action' => 'clear'],
         "/sessionexit" =>           ['controller' => "Student", 'action' => 'sessionexit'],
         "/delete" =>                ['controller' => "Student", 'action' => 'delete'],
+        "/delete_users" =>          ['controller' => "Student", 'action' => 'delete_users'],
+        "/user_authorization1" =>   ['controller' => "Student", 'action' => 'user_authorization1'],
+        "/user_registration1" =>    ['controller' => "Student", 'action' => 'user_registration1'],
 
         ];
         

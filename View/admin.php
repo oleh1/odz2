@@ -70,7 +70,24 @@
     <strong>Пусто</strong>
     <?php endif ?>
 
-</div>
+</div><br>
+
+<a href="#" onclick="openbox('box4'); return false"><b>Просмотр списка зарегистрированных пользователей</b></a>
+<div id="box4" style="display: none;">
+
+    <?php while($c = $users->fetch_array()): ?>
+        <?php $c1 = $c['username'] ?>
+        <b>Имя:</b> <?= $c['username'] ?> <b>Логин:</b> <?= $c['login'] ?><br>
+
+    <?php endwhile ?>
+
+    <?php if($c1 == null): ?>
+    <strong>Нет зарегистрированных пользователей</strong>
+    <?php else: ?>
+    <a href="delete_users">Удалить всех пользователей</a>
+    <?php endif ?>
+
+    </div>
 
     <form action="sessionexit">
         <input type="submit" value="Выйти">

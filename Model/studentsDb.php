@@ -8,6 +8,7 @@ class StudentsDb
     public $userstable = 'odz';
     public $admindb = 'admindb';
     public $admin = 'admin';
+    public $user = 'user';
     public $expensive;
     public $average;
     public $cheap;
@@ -16,6 +17,7 @@ class StudentsDb
     public $edit;
     public $purchases;
     public $search;
+    public $users;
 
     public function __construct()
     {
@@ -35,6 +37,9 @@ class StudentsDb
 
         $pu = "SELECT * FROM $this->admindb";
         $this->purchases = mysqli_query($dd->getMysqli(), $pu);
+
+        $us = "SELECT * FROM $this->user";
+        $this->users = mysqli_query($dd->getMysqli(), $us);
 
     }
 
@@ -111,6 +116,47 @@ class StudentsDb
         }
     }
 
+    public function user_authorization2()
+    {
+        $dd = new baza();
+
+        $login = $_POST['login'];
+        $password = md5($_POST['password']);
+
+
+        $query_authorization = "SELECT * FROM $this->user WHERE login = '{$login}'";
+        $query_authorization1 = mysqli_query($dd->getMysqli(), $query_authorization);
+        $query_authorization2 = $query_authorization1->fetch_array();
+        if($query_authorization2['login'] == $login & $query_authorization2['password'] == $password){
+            setcookie("user","$login",time()+7777);
+            header("Location: body?autho=2&name={$query_authorization2['username']}");
+            die;
+        }else{
+            header("Location: body?error=1");
+            die;
+        }
+    }
+
+    public function validation(){
+        if($_GET['error'] == 1){ $validation = "Неверный логин или пароль";
+        }elseif($_GET['autho'] == 2){ $validation = "{$_GET['name']} Вы вошли в свой акаунт"; }
+            return $validation; }
+
+    public function user_registration2()
+    {
+        $dd = new baza();
+
+        $username = $_POST['username'];
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $password = md5($password);
+
+        $mysql_admin = "INSERT INTO $this->user VALUES(null, '{$username}', '{$login}', '{$password}')";
+        mysqli_query($dd->getMysqli(), $mysql_admin);
+            header("Location: body");
+            die;
+    }
+
     public function clear1()
     {
         $dd = new baza();
@@ -136,6 +182,17 @@ class StudentsDb
         $query_delete = "DELETE FROM $this->userstable WHERE name1='{$_GET['delete']}'";
         mysqli_query($dd->getMysqli(), $query_delete);
         unlink('drawings/'.$_GET['deleteimg']);
+        header("Location: admin");
+        die;
+    }
+
+    public function delete_users1()
+    {
+        $dd = new baza();
+
+        $delete = "DELETE FROM $this->user";
+        mysqli_query($dd->getMysqli(), $delete);
+        setcookie("user","",time()-7777);
         header("Location: admin");
         die;
     }
