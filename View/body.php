@@ -1,4 +1,4 @@
-<?php if(!isset($_COOKIE['user'])): ?>
+<?php if(!isset($_SESSION['admin']) && !isset($_COOKIE['user'])): ?>
 <center><b>Просмотр каталога товаров доступно только для зарегистрированных пользователей</b></center>
     <strong>Авторизуйтесь</strong><br>
 <?= $validation; ?>
@@ -22,7 +22,7 @@
 
     <?php endif ?>
 
-<?php if(isset($_COOKIE['user'])): ?>
+<?php if(isset($_COOKIE['user']) || isset($_SESSION['admin'])): ?>
 
     <b><?= $validation; ?></b><br>
 <a href="expensive">Калькуляторы от 60 грн. и выше</a><br>
