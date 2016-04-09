@@ -11,7 +11,8 @@ while($a = $edit->fetch_array()) {
 
 <h1>Редактирование</h1><br>
 <a href="admin">Назад</a>
-<form action="edit3?name1=<?= $a2; ?>" method="POST">
+
+<form enctype="multipart/form-data" action="edit3?name1=<?= $a2; ?>&deleteimg=<?= $a6; ?>" method="POST">
     <strong>Введите марку</strong><br>
     <input type="text" name="mark" value="<?= $a1; ?>" required><br>
     <strong>Введите название</strong><br>
@@ -22,7 +23,7 @@ while($a = $edit->fetch_array()) {
     <textarea rows="9" cols="45" name="description"><?= $a4; ?></textarea><br>
     <strong>Введите количество штук</strong><br>
     <input type="text" name="quantity" size="1" value="<?= $a5; ?>" pattern="[0-9]+" required><br>
-    <strong>Введите название картинки</strong><br>
-    <input type="text" name="img" value="<?= $a6; ?>" required><br>
+    <strong>Загрузить другую фотографию</strong><br>
+    <input type="file" name="myfile"><br/>
     <input type="submit" value="Редактировать">
 </form>

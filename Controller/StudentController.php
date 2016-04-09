@@ -13,6 +13,10 @@ class StudentController extends StudentsDb
         $data = [
             'search'=>$this->search(),
             'validation'=>$this->validation(),
+            'mark'=>$this->mark,
+            'expensive'=>$this->expensive,
+            'average'=>$this->average,
+            'cheap'=>$this->cheap,
         ];
         return $this->requireToVar('View/body.php', $data);
     }
@@ -73,19 +77,6 @@ class StudentController extends StudentsDb
     public function purchase()
     {
         return $this->purchase1();
-    }
-
-    public function expensive()
-    {
-        return $this->requireToVar('View/expensive.php', ['expensive'=>$this->expensive]);
-    }
-    public function average()
-    {
-        return $this->requireToVar('View/average.php', ['average'=>$this->average]);
-    }
-    public function cheap()
-    {
-        return $this->requireToVar('View/cheap.php', ['cheap'=>$this->cheap]);
     }
 
     public function clear()

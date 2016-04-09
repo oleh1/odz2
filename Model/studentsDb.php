@@ -18,6 +18,7 @@ class StudentsDb
     public $purchases;
     public $search;
     public $users;
+    public $mark;
 
     public function __construct()
     {
@@ -41,6 +42,9 @@ class StudentsDb
         $us = "SELECT * FROM $this->user";
         $this->users = mysqli_query($dd->getMysqli(), $us);
 
+        $ma = "SELECT * FROM $this->userstable";
+        $this->mark = mysqli_query($dd->getMysqli(), $ma);
+
     }
 
     public function xxxx()
@@ -62,8 +66,13 @@ class StudentsDb
     {
         $dd = new baza();
 
-        $query_edit = "UPDATE $this->userstable SET mark='{$_POST['mark']}', name1='{$_POST['name1']}', price='{$_POST['price']}', description='{$_POST['description']}', quantity='{$_POST['quantity']}', img='{$_POST['img']}' WHERE name1='{$_GET['name1']}'";
+        $query_edit = "UPDATE $this->userstable SET mark='{$_POST['mark']}', name1='{$_POST['name1']}', price='{$_POST['price']}', description='{$_POST['description']}', quantity='{$_POST['quantity']}', img='{$_FILES['myfile']['name']}' WHERE name1='{$_GET['name1']}'";
         mysqli_query($dd->getMysqli(), $query_edit);
+
+        $uploaddir = "drawings/";
+        $dest = $uploaddir.$_FILES['myfile']['name'];
+        move_uploaded_file($_FILES['myfile']['tmp_name'],$dest);
+        unlink('drawings/'.$_GET['deleteimg']);
 
         header("Location: admin");
         die;
@@ -171,7 +180,7 @@ class StudentsDb
     {
         $dd = new baza();
 
-        $se = "SELECT * FROM $this->userstable WHERE mark='{$_POST['search']}' OR mark='{$_POST['search1']}' OR name1='{$_POST['search']}' OR name1='{$_POST['search1']}' OR price='{$_POST['search']}' OR price='{$_POST['search1']}' OR description='{$_POST['search']}' OR description='{$_POST['search1']}' OR quantity='{$_POST['search']}' OR quantity='{$_POST['search1']}' OR img='{$_POST['search']}' OR img='{$_POST['search1']}'";
+        $se = "SELECT * FROM $this->userstable WHERE mark='{$_POST['search']}'";
         return $this->search = mysqli_query($dd->getMysqli(), $se);
     }
 

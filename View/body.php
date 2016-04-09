@@ -25,25 +25,49 @@
 <?php if(isset($_COOKIE['user']) || isset($_SESSION['admin'])): ?>
 
     <b><?= $validation; ?></b><br>
-<a href="expensive">Калькуляторы от 60 грн. и выше</a><br>
-<a href="average">Калькуляторы от 30 до 60 грн.</a><br>
-<a href="cheap">Калькуляторы до 30 грн.</a><br>
+    <a href="#" onclick="openbox('box6'); return false"><b>Калькуляторы от 60 грн. и выше</b></a>
+    <div id="box6" style="display: none;">
+
+        <?php while($a = $expensive->fetch_array()): ?>
+            <strong><a href="xxx?xxx=<?= $a['name1'] ?>"><?= $a['name1'] ?></a></strong><br>
+        <?php endwhile; ?>
+
+    </div><br>
+
+    <a href="#" onclick="openbox('box7'); return false"><b>Калькуляторы от 30 до 60 грн.</b></a>
+    <div id="box7" style="display: none;">
+
+        <?php while($b = $average->fetch_array()): ?>
+            <strong><a href="xxx?xxx=<?= $b['name1'] ?>"><?= $b['name1'] ?></a></strong><br>
+        <?php endwhile; ?>
+
+    </div><br>
+
+    <a href="#" onclick="openbox('box8'); return false"><b>Калькуляторы до 30 грн.</b></a>
+    <div id="box8" style="display: none;">
+
+        <?php while($c = $cheap->fetch_array()): ?>
+            <strong><a href="xxx?xxx=<?= $c['name1'] ?>"><?= $c['name1'] ?></a></strong><br>
+        <?php endwhile; ?>
+
+    </div><br>
 
 <form action="body" method="POST">
-    Поиск по производителю
-    <select name="search1">
+    <strong>Поиск по производителю</strong><br>
+            <?php
+            while($m = $mark->fetch_array()){
+                $m1[] = $m['mark'];
+            }
+            $m2 = array_unique($m1);
+            ?>
+    <select name="search">
         <option value=""></option>
-        <option value="Citizen">Citizen</option>
-        <option value="Assistant">Assistant</option>
-        <option value="Canon">Canon</option>
-        <option value="Samsung">Samsung</option>
-        <option value="Sony">Sony</option>
+    <?php foreach($m2 as $m3): ?>
+        <option value="<?= $m3; ?>"><?= $m3; ?></option>
+    <?php endforeach ?>
     </select>
-    <input type="text" name="search">
     <input type="submit" value="Поиск">
-</form>
-
-
+</form><br>
 
 <?php while($a = $search->fetch_array()): ?>
 
