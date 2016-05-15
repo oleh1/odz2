@@ -3,7 +3,7 @@
     <strong>Авторизуйтесь</strong><br>
 <?= $validation; ?>
 <form action="user_authorization1" method="POST">
-    <input type="text" name="login" placeholder="ВВедите логин" required><br>
+    <input type="text" name="login" placeholder="Введите логин" required><br>
     <input type="password" name="password" placeholder="Введите пароль" required><br>
     <input type="submit" value="ОК">
 </form>
@@ -13,7 +13,7 @@
 
 <form action="user_registration1" method="POST">
     <input type="text" name="username" placeholder="Введите имя" required><br>
-    <input type="text" name="login" placeholder="ВВедите логин" required><br>
+    <input type="text" name="login" placeholder="Введите логин" required><br>
     <input type="password" name="password" placeholder="Введите пароль" required><br>
     <input type="submit" value="ОК">
 </form>
